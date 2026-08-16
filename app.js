@@ -22,7 +22,7 @@ function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('sh
 })();
 
 /* ---------- navigation ---------- */
-const SCREENS={login:'login-screen',home:'home-screen',notebook:'notebook-screen',sbook:'sbook-screen',orderbook:'orderbook-screen',tally:'tally-screen',attendance:'attendance-screen',call:'call-screen',emergency:'emergency-screen',chatai:'chatai-screen',recordbook:'recordbook-screen',recorddates:'recorddates-screen',recordview:'recordview-screen',printhome:'printhome-screen',changerec:'changerec-screen'};
+const SCREENS={login:'login-screen',home:'home-screen',notebook:'notebook-screen',sbook:'sbook-screen',orderbook:'orderbook-screen',tally:'tally-screen',attendance:'attendance-screen',call:'call-screen',emergency:'emergency-screen',chatai:'chatai-screen',recordbook:'recordbook-screen',recorddates:'recorddates-screen',recordview:'recordview-screen',printhome:'printhome-screen',changerec:'changerec-screen',cloud:'cloud-screen'};
 let go=function(name){
   $$('.screen').forEach(s=>s.classList.remove('active'));
   $('#'+ (SCREENS[name]||SCREENS.home)).classList.add('active');
