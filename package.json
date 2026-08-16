@@ -1,0 +1,9 @@
+{
+  "name": "satyam-gold",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SATYAM GOLD — Atta/Sattu/Besan/Chokar mill billing + PostgreSQL history (Cloudflare Pages Functions)",
+  "dependencies": {
+    "postgres": "^3.4.4"
+  }
+}

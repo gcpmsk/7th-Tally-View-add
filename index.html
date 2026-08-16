@@ -62,6 +62,64 @@ body{overflow-x:hidden;}
 .tile-grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;width:100%;max-width:980px;margin:38px auto 0;perspective:1200px;}
 .tile-8{background:linear-gradient(135deg,#fdcb6e,#b8860b);box-shadow:0 14px 28px -10px rgba(184,134,11,.6);}
 .tile-9{background:linear-gradient(135deg,#00b894,#00695c);box-shadow:0 14px 28px -10px rgba(0,105,92,.6);}
+.tile-10{background:linear-gradient(135deg,#54a0ff,#2c3e50);box-shadow:0 14px 28px -10px rgba(44,62,80,.6);}
+
+/* ============ CLOUD BILLS (PostgreSQL) ============ */
+.cb-wrap{position:relative;z-index:2;width:96%;max-width:1180px;margin:14px auto 40px;}
+.cb-card{background:#fff;border:1px solid #e6ebf2;border-radius:18px;padding:18px 18px 22px;margin-bottom:18px;
+  box-shadow:0 10px 26px -14px rgba(31,97,141,.35);}
+.cb-card h3{font-size:17px;font-weight:700;color:#1f618d;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.cb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;}
+.cb-f{display:flex;flex-direction:column;gap:5px;}
+.cb-f label{font-size:12px;font-weight:600;color:#7a869a;letter-spacing:.3px;}
+.cb-f input,.cb-f textarea,.cb-f select{padding:10px 12px;border:2px solid #e6ebf2;border-radius:11px;font-size:14px;
+  outline:none;background:#fafcff;transition:.25s;width:100%;}
+.cb-f input:focus,.cb-f textarea:focus{border-color:#f1c40f;box-shadow:0 0 0 4px rgba(241,196,15,.16);}
+.cb-f textarea{resize:vertical;min-height:60px;font-family:inherit;}
+.cb-items{margin-top:14px;}
+.cb-irow{display:grid;grid-template-columns:1.6fr .7fr .8fr .8fr .9fr 34px;gap:8px;align-items:center;margin-bottom:8px;}
+.cb-irow input{padding:9px 10px;border:2px solid #e6ebf2;border-radius:10px;font-size:13px;background:#fafcff;outline:none;width:100%;}
+.cb-irow .cb-amt{background:#f0f8f2;font-weight:700;color:#1e8449;}
+.cb-del{border:none;background:#ffe5e5;color:#c0392b;border-radius:9px;height:34px;cursor:pointer;font-size:15px;font-weight:700;}
+.cb-ihead{display:grid;grid-template-columns:1.6fr .7fr .8fr .8fr .9fr 34px;gap:8px;font-size:11px;font-weight:700;
+  color:#8a94a6;letter-spacing:.5px;margin-bottom:6px;padding:0 4px;}
+.cb-sum{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:12px;padding-top:12px;border-top:1px dashed #dfe6ef;}
+.cb-sum b{font-size:16px;}
+.cb-tot{color:#1e8449;} .cb-due{color:#c0392b;}
+.cb-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
+.cb-btn{border:none;border-radius:12px;padding:11px 20px;font-size:14px;font-weight:700;color:#fff;cursor:pointer;transition:.25s;letter-spacing:.4px;}
+.cb-btn:hover{transform:translateY(-2px);} .cb-btn:active{transform:translateY(1px);}
+.cb-btn:disabled{opacity:.55;cursor:not-allowed;transform:none;}
+.cb-green{background:linear-gradient(135deg,#2ecc71,#1e8449);}
+.cb-blue{background:linear-gradient(135deg,#54a0ff,#1f618d);}
+.cb-grey{background:linear-gradient(135deg,#b2bec3,#636e72);}
+.cb-msg{margin-top:10px;font-size:13px;font-weight:600;display:none;padding:9px 12px;border-radius:10px;}
+.cb-msg.okk{display:block;background:#e8f8ef;color:#1e8449;border:1px solid #b7e4c9;}
+.cb-msg.errr{display:block;background:#fdecea;color:#c0392b;border:1px solid #f5c2bc;}
+.cb-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px;}
+.cb-tools input{padding:9px 12px;border:2px solid #e6ebf2;border-radius:11px;font-size:13px;background:#fafcff;outline:none;}
+.cb-tblwrap{overflow-x:auto;border:1px solid #e6ebf2;border-radius:14px;}
+table.cb-tbl{width:100%;border-collapse:collapse;font-size:13px;min-width:900px;}
+table.cb-tbl th{background:#f4f8fc;color:#1f618d;font-weight:700;font-size:12px;letter-spacing:.4px;
+  padding:11px 10px;text-align:left;border-bottom:2px solid #e6ebf2;white-space:nowrap;}
+table.cb-tbl td{padding:10px;border-bottom:1px solid #eef2f7;vertical-align:top;}
+table.cb-tbl tr:last-child td{border-bottom:none;}
+table.cb-tbl tr:hover td{background:#fbfdff;}
+.cb-items-cell{font-size:12px;color:#4a5568;line-height:1.6;max-width:300px;}
+.cb-items-cell span{display:inline-block;background:#f4f8fc;border:1px solid #e6ebf2;border-radius:7px;padding:1px 7px;margin:2px 3px 2px 0;}
+.cb-money{font-weight:700;white-space:nowrap;}
+.cb-pdf{display:inline-block;background:linear-gradient(135deg,#ff7675,#d63031);color:#fff;text-decoration:none;
+  padding:6px 12px;border-radius:9px;font-size:12px;font-weight:700;white-space:nowrap;}
+.cb-pdf:hover{filter:brightness(1.1);}
+.cb-none{color:#b2bec3;font-size:12px;}
+.cb-time{font-size:12px;color:#4a5568;white-space:nowrap;line-height:1.5;}
+.cb-time b{display:block;color:#1a1a2e;}
+.cb-empty{text-align:center;color:#8a94a6;padding:34px 12px;font-size:14px;}
+@media(max-width:760px){
+  .cb-irow,.cb-ihead{grid-template-columns:1.4fr .6fr .8fr .8fr;}
+  .cb-ihead span:nth-child(5),.cb-ihead span:nth-child(6){display:none;}
+  .cb-irow .cb-amt{grid-column:1/-1;} .cb-del{grid-column:1/-1;}
+}
 .tile{position:relative;border-radius:22px;padding:30px 10px 24px;text-align:center;color:#fff;cursor:pointer;border:none;
   transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.9,.3,1.4), box-shadow .35s;
   animation:tileIn .7s cubic-bezier(.2,.9,.3,1.3) backwards;overflow:hidden;}
@@ -814,6 +872,7 @@ th.today-h{background:linear-gradient(135deg,#f39c12,#d35400)!important;}
     <button class="tile tile-6" data-go="call"><span class="t-ico">📞</span><span class="t-name">Call</span></button>
     <button class="tile tile-7" data-go="emergency"><span class="t-ico">🚨</span><span class="t-name">Emergency</span></button>
     <button class="tile tile-9" data-go="tally"><span class="t-ico">📊</span><span class="t-name">Tally View</span></button>
+    <button class="tile tile-10" data-go="cloud"><span class="t-ico">☁️</span><span class="t-name">Cloud Bills</span></button>
   </div>
   <button class="chat-ai-btn" data-go="chatai"><span class="ai-dot"></span>💬 CHAT AI</button>
 </div>
@@ -938,6 +997,94 @@ th.today-h{background:linear-gradient(135deg,#f39c12,#d35400)!important;}
   </div>
   <div id="record-view-wrap"></div>
 </div>
+<!-- ============ CLOUD BILLS — PostgreSQL (Pages Functions) ============ -->
+<div class="screen sub-screen" id="cloud-screen">
+  <div class="sub-head">
+    <button class="back-btn" data-go="home">← Back</button>
+    <div class="sub-title">☁️ Cloud Bills — PostgreSQL</div>
+  </div>
+
+  <div class="cb-wrap">
+
+    <!-- ---------- (a) नया बिल submit ---------- -->
+    <div class="cb-card">
+      <h3>🧾 नया बिल Save करें</h3>
+      <form id="cb-form" autocomplete="off">
+        <div class="cb-grid">
+          <div class="cb-f">
+            <label>Customer Name *</label>
+            <input type="text" id="cb-name" placeholder="ग्राहक का नाम" required>
+          </div>
+          <div class="cb-f">
+            <label>Mobile Number</label>
+            <input type="tel" id="cb-mob" placeholder="9631816666" inputmode="numeric" maxlength="15">
+          </div>
+          <div class="cb-f">
+            <label>PDF Receipt URL</label>
+            <input type="url" id="cb-pdf" placeholder="https://.../receipt-101.pdf">
+          </div>
+          <div class="cb-f">
+            <label>Date &amp; Time (बिल का समय)</label>
+            <input type="datetime-local" id="cb-dt" step="1">
+          </div>
+        </div>
+
+        <div class="cb-items">
+          <div class="cb-ihead">
+            <span>ITEM</span><span>QTY</span><span>UNIT</span><span>RATE ₹</span><span>AMOUNT ₹</span><span></span>
+          </div>
+          <div id="cb-irows"></div>
+          <button type="button" class="cb-btn cb-grey" id="cb-additem" style="padding:8px 16px;font-size:13px;">➕ Item जोड़ें</button>
+        </div>
+
+        <div class="cb-sum">
+          <div>Total: <b class="cb-tot" id="cb-tot-lbl">₹0</b></div>
+          <div class="cb-f" style="max-width:170px;">
+            <label>Total Amount ₹ (edit)</label>
+            <input type="number" id="cb-total" step="0.01" min="0" value="0">
+          </div>
+          <div class="cb-f" style="max-width:170px;">
+            <label>Due Amount ₹</label>
+            <input type="number" id="cb-due" step="0.01" min="0" value="0">
+          </div>
+          <div>Due: <b class="cb-due" id="cb-due-lbl">₹0</b></div>
+        </div>
+
+        <div class="cb-btns">
+          <button type="submit" class="cb-btn cb-green" id="cb-save">💾 Database में Save करें</button>
+          <button type="reset"  class="cb-btn cb-grey"  id="cb-clear">✖ Clear</button>
+        </div>
+        <div class="cb-msg" id="cb-msg"></div>
+      </form>
+    </div>
+
+    <!-- ---------- (b) history ---------- -->
+    <div class="cb-card">
+      <h3>📜 पुरानी History <span id="cb-cnt" style="font-size:12px;color:#8a94a6;font-weight:600;"></span></h3>
+      <div class="cb-tools">
+        <input type="text" id="cb-q" placeholder="🔍 नाम / mobile से खोजें">
+        <input type="date" id="cb-from" title="From date">
+        <input type="date" id="cb-to"   title="To date">
+        <button type="button" class="cb-btn cb-blue" id="cb-refresh" style="padding:9px 18px;font-size:13px;">🔄 Refresh</button>
+      </div>
+      <div class="cb-tblwrap">
+        <table class="cb-tbl">
+          <thead>
+            <tr>
+              <th>#ID</th><th>Customer</th><th>Mobile</th><th>Items</th>
+              <th>Total ₹</th><th>Due ₹</th><th>PDF</th><th>Date &amp; Time</th>
+            </tr>
+          </thead>
+          <tbody id="cb-tbody">
+            <tr><td colspan="8" class="cb-empty">— load हो रहा है… —</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <div class="screen sub-screen" id="chatai-screen"><div class="sub-head"><button class="back-btn" data-go="home">← Back</button><div class="sub-title">💬 Chat AI</div></div><div class="placeholder-card"><span class="big-ico">🤖</span><h3>Chat AI Assistant</h3><p>AI सहायक जल्द आ रहा है… (Coming Soon)</p></div></div>
 
 <div id="ph-viewer"><div class="pv-bar"><div class="pv-title" id="pv-title">Preview</div><button class="pv-close" id="pv-close">✖</button></div><div class="pv-paper" id="pv-paper"></div></div>
@@ -948,5 +1095,6 @@ th.today-h{background:linear-gradient(135deg,#f39c12,#d35400)!important;}
 <script src="sbook.js"></script>
 <script src="orderbook.js"></script>
 <script src="tally.js"></script>
+<script src="cloud.js"></script>
 </body>
 </html>
